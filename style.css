@@ -60,7 +60,7 @@ body {
   color: hsl(var(--txt));
   font-size: var(--_size);
   line-height: 1.5;
-  padding-block: 1.5em;
+  padding: 1.5em;
 }
 
 main {
@@ -129,8 +129,8 @@ ul {
 
 .card-container {
   display: grid;
-  gap: 2.5em;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   padding-block-start: 2vmax;
 }
 
