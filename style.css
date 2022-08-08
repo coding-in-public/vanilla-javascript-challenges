@@ -1,4 +1,6 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -60,7 +62,7 @@ body {
   color: hsl(var(--txt));
   font-size: var(--_size);
   line-height: 1.5;
-  padding-block: 1.5em;
+  padding: 1.5em;
 }
 
 main {
@@ -129,8 +131,8 @@ ul {
 
 .card-container {
   display: grid;
-  gap: 2.5em;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 2em;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   padding-block-start: 2vmax;
 }
 
@@ -156,5 +158,5 @@ ul {
 
 .boxy {
   box-shadow: .15em .2em hsl(var(--accent) / .8),
-              -.2em -.25em hsl(var(--txt) / .8);
+    -.2em -.25em hsl(var(--txt) / .8);
 }
