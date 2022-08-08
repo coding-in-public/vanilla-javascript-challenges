@@ -1,0 +1,160 @@
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+  font: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+:root {
+  --_hue: 240;
+  --_size: 1.3rem;
+  --_radius: 0.3em;
+  --_tspeed_slow: 400ms;
+  --_ttype_squish: cubic-bezier(0.86, -0.1, 0.27, 1.15);
+
+  /* Light Mode */
+  --bg--light: var(--_hue) 30% 94%;
+  --txt--light: var(--_hue) 40% 5%;
+  --accent--light: var(--_hue) 45% 50%;
+  /* Dark Mode */
+  --bg--dark: var(--_hue) 15% 10%;
+  --txt--dark: var(--_hue) 30% 94%;
+  --accent--dark: var(--_hue) 60% 60%;
+
+  --bg: var(--bg--light);
+  --txt: var(--txt--light);
+  --accent: var(--accent--light);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg--dark);
+    --txt: var(--txt--dark);
+    --accent: var(--accent--dark);
+    color-scheme: dark;
+  }
+}
+
+/* prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --_tspeed_slow: 50ms;
+  }
+}
+
+::selection {
+  background: hsl(var(--accent) / .5);
+  color: hsl(var(--bkg));
+}
+
+body {
+  min-height: 100vh;
+  background-color: hsl(var(--bkg));
+  color: hsl(var(--txt));
+  font-size: var(--_size);
+  line-height: 1.5;
+  padding-block: 1.5em;
+}
+
+main {
+  display: grid;
+  align-items: center;
+  gap: var(--_size);
+  max-width: 75rem;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: calc(var(--_size) * 4);
+  line-height: 1.05;
+  text-align: center;
+  color: hsl(var(--accent));
+}
+
+h2 {
+  font-size: calc(var(--_size) * 1.5);
+  line-height: 1.05;
+  color: hsl(var(--accent));
+}
+
+ul {
+  margin-left: 2rem;
+}
+
+.btn {
+  max-width: fit-content;
+  display: flex;
+  place-items: center;
+  gap: 0.5em;
+  background-color: hsl(var(--accent));
+  color: hsl(var(--bg));
+  text-decoration: none;
+  padding: 0.4em 1.4em;
+  border-radius: var(--_radius);
+  box-shadow: 0.05em 0.1em 0.9em hsl(var(--accent) / 0.3),
+    0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent));
+  transition: box-shadow var(--_tspeed_slow) var(--_ttype_squish),
+    background-color var(--_tspeed_slow) var(--_ttype_squish);
+}
+
+.btn :where(svg, img, span) {
+  pointer-events: none;
+}
+
+.btn :where(svg, img) {
+  width: var(--_size);
+}
+
+.btn:where(:active, :hover) {
+  background-color: hsl(var(--accent) / 0.7);
+  box-shadow: 0 0 0 hsl(var(--accent) / 0.3), 0 0 0 -0.1em hsl(var(--bg)),
+    0 0 0 -0.2em hsl(var(--accent));
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:focus-visible {
+  box-shadow: 0 0 0 hsl(var(--accent) / 0.3), 0 0 0 0.2em hsl(var(--bg)),
+    0 0 0 0.4em hsl(var(--accent) / 0.7);
+}
+
+.card-container {
+  display: grid;
+  gap: 2.5em;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  padding-block-start: 2vmax;
+}
+
+.card {
+  background-color: hsl(var(--bkg));
+  box-shadow: 0 0 4em hsl(var(--accent) / .15);
+  border-radius: var(--_radius);
+  padding: 1em;
+  display: grid;
+  gap: 1em;
+}
+
+.card__image {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: calc(var(--_radius) * .5);
+}
+
+.glow {
+  box-shadow: 0 0 4em hsl(var(--accent) / .8);
+}
+
+.boxy {
+  box-shadow: .15em .2em hsl(var(--accent) / .8),
+              -.2em -.25em hsl(var(--txt) / .8);
+}
