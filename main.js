@@ -26,7 +26,7 @@ import {peeps, comments} from './data.js'
 
 // 4. Return a new object called “commentObj” with the comment id as a key and the comment text as the value.
 
-// 5. Return a new object called “groupedRatings” with the rating as a key and and an array of comments with that rating as the value.
+// 5. Return a new object called “groupedRatings” with the rating as a key and an array of comments with that rating as the value. Ignore comments without a rating.
 
 // 6. Return the average rating of all comments.
 
