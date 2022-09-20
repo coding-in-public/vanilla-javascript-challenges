@@ -10,3 +10,4 @@ Happy Coding ✌️
 ## Challenges
 1. [Challenge 1: JavaScript DOM manipulation](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-1-BLANK)
 2. [Challenge 2: JavaScript Array methods](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-2-BLANK)
+3. [Challenge 3: Working with JavaScript Objects](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-3-BLANK)
