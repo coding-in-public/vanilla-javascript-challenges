@@ -1,58 +1,59 @@
-import {peeps, comments} from './data.js'
+// DOCS: https://dummyjson.com/docs/
+const BASEURL = "https://dummyjson.com";
 
-// EASIER CHALLENGES (using the peeps array) //
+// use the /products endpoint for #1–4
 
-// 1. Count the number of people in the people array.
-// console.log(peeps.length)
+// 1. Create a fetch function called "customFetch" that hits the "https://dummyjson.com/products" endpoint and console logs and returns the data.
 
-// 2. List full names of people in a new array.
-const newArray = peeps.map(p => `${p.name.first} ${p.name.last}`)
+// 2. Update the "customFetch" function to take in a endpoint and handle errors (including a wrong endpoint)
 
-// 3. Return “true” if everyone is older than 24.
-// console.log(peeps.every(p => p.age > 24))
+// 3. Create a function called "getProducts" that returns all the products in an array. Then list all the products in the DOM in an unordered list.
 
-// 4. Return “true” if at least one person is younger than 26.
-// console.log(peeps.some(p => p.age < 26))
+// 4. Update the "customFetch" function to handle a delete, add, or update a request.
+/*
+- Use the updated function to update and then delete a product by it’s ID. (FYI, "https://dummyjson.com/products/1" will access the product with the id of 1)
+- Use the updated function to POST a new product to the list of products. (FYI, "https://dummyjson.com/products/add" will allow POST requests)
+*/
 
-// 5. Return a new array called “young peeps” of all peeps less than 30.
-const youngPeeps = peeps.filter(p => p.age < 30)
 
-// 6. Sort the peeps by age from oldest to youngest in an array called “sortedPeeps”.
-const sortedPeeps = peeps.sort((a, b) => b.age - a.age);
+// use the /users, /posts/, and /comments endpoints for #5–7
+// 5. Create a function called "getFilteredUsers" that console logs and returns all the users who are 21 years old in a new array of objects in the following structure:
+/*
+[
+  {
+    name: "John Doe", (containing first and last name)
+    age: 21,
+    email: "email@email.com",
+  },
+  ...
+]
 
-// 7. Create a new array called “firstNamePeeps” with only the first names of the peeps.
-const firstNamePeeps = peeps.map(p => p.name.first)
+See help documentation for help at https://dummyjson.com/docs/users. You can use the "customFetch" function you created earlier.
+*/
 
-// HARDER CHALLENGES (using the comments object and peeps array) //
+// 6. Alter the getFilteredUsers function to return all filtered users in an object with the id as the key and the user object as the value. (See help documentation for help at https://dummyjson.com/docs/users)
 
-// 1. List all the comments in an array of strings called “commentsArray”
-const commentsArray = Object.values(comments).map(c => c.text)
 
-// 2. Return all comments with the word “love” in the comment in a new array called “loveComments”
-const loveComments = Object.values(comments).filter(c => c.text.includes('love'));
+// 7. Create a new function called "getCommentsOnUsersPosts" that takes in a user id and returns all comments on any post by that user in an array of objects. Each object should contain two properties, postTitle and comments. Comments should contain the userID of the commentor and the text. Bonus points for filtering out posts without comments. Sample below:
 
-// 3. List all the comments in an array of strings called “sortedCommentsArray" from lowest rating to highest rating. Ignore comments without a rating.
-const sortedCommentsArray = Object.values(comments)
-  .filter(c => c.rating)
-  .sort((a, b) => a.rating - b.rating)
+/*
 
-// 4. Return a new object called “commentObj” with the comment id as a key and the comment text as the value.
-const commentObj = Object.entries(comments).reduce((acc, comment) => ({...acc, [comment[0]]: comment[1].text}), {})
+[
+  {
+    postTitle: "Post Title",
+    comments: [
+      {
+      userId: 1,
+      text: "Comment Text"
+      },
+      {
+      userId: 2,
+      text: "Comment Again"
+      }
+    ]
+  },
+  ...
+]
 
-// 5. Return a new object called “groupedRatings” with the rating as a key and an array of comments with that rating as the value.
-const groupedRatings = Object.values(comments).reduce((acc, comment) => {
-  if(!comment.rating){return acc}
-  return {...acc, [comment.rating]: [...acc[comment.rating] || [], comment]}
-}, {})
-
-// 6. Return the average rating of all comments.
-const averageRating = Object.values(comments).reduce((acc, comment) => acc += comment.rating || 0, 0) / Object.values(comments).filter(c => c.rating).length;
-
-// 7. Group all comments by the user who made the comment. Return a new object called “groupedPeepComments” with the user’s first and last name as a string key. The value of each object should be an array of comment objects by the person.
-const groupedPeepComments = Object.values(comments)
-.reduce((acc, comment) => {
-  const peep = peeps.find(p => p.id === comment.userId);
-  const key = `${peep.name.first} ${peep.name.last}`
-  const currGroup = acc[key] || [];
-  return {...acc, [key]: [...currGroup, comment]}
-}, {})
+See https://dummyjson.com/docs/users, https://dummyjson.com/docs/posts, and https://dummyjson.com/docs/comments for help.
+*/
