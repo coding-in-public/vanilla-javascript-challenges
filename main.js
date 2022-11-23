@@ -1,4 +1,4 @@
-// DOCS: https://dummyjson.com/docs/
+// DOCS:https://dummyjson.com/docs/
 const BASEURL = "https://dummyjson.com";
 
 // use the /products endpoint for #1–4
