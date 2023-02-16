@@ -11,3 +11,5 @@ Happy Coding ✌️
 1. [Challenge 1: JavaScript DOM manipulation](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-1-BLANK)
 2. [Challenge 2: JavaScript Array methods](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-2-BLANK)
 3. [Challenge 3: Working with JavaScript Objects](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-3-BLANK)
+4. [Challenge 4: Working with the Fetch API](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-4-BLANK)
+5. [Challenge 5: Formatting Strings and Numbers](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-5-BLANK)
