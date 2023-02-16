@@ -10,18 +10,18 @@ const people = ["John", "Paul", "George", "Ringo"];
 
 // 4. Add the total number of people as an appended string to the above paragraph (e.g., "John, Paul, George, and Ringo (4)").
 
-// 4. Change the paragraph to read "John, Paul, George, or Ringo (4)".
+// 5. Change the paragraph to read "John, Paul, George, or Ringo (4)".
 
-// 5. Show only the first three names (it should read “John, Paul, or George (3)”).
+// 6. Show only the first three names (it should read “John, Paul, or George (3)”).
 
-// 6. Show only the last two names (it should read “Paul or Ringo (2)”).
+// 7. Show only the last two names (it should read “George or Ringo (2)”).
 
 // Formatting Numbers //
 
 const numbers = [1, 2, 3, 2, 5, 4, 6, 5, 3, 5];
 const small_amt = 1234;
 const medium_amt = 124.234;
-const large_amt = 123224223159;
+const large_amt = 123_224_223_159;
 
 // 1. Create a new array called uniqueNumbers with all unique numbers in the numbers array.
 
@@ -37,4 +37,4 @@ const large_amt = 123224223159;
 
 // 7. Output large_amt in a <p> tag as the next sibling to your <p id="medium_amt"> with the id "large_amt". Format it as a number with a comma separating the thousands (e.g., 123,224,223,159).
 
-// 8. Format "large_amt" as a compact number with a maximum of one fraction digit (e.g., 123.2M).
+// 8. Format "large_amt" as a compact number with a maximum of one fraction digit (e.g., 123.2B).
