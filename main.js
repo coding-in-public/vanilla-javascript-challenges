@@ -1,154 +1,40 @@
-// DOCS:https://dummyjson.com/docs/
-const BASEURL = "https://dummyjson.com";
+// Formatting Strings //
 
-// use the /products endpoint for #1–4
+const people = ["John", "Paul", "George", "Ringo"];
 
-// 1. Create a fetch function called "customFetch" that hits the "https://dummyjson.com/products" endpoint and console logs and returns the data.
+// 1. Loop through the people array and insert an <li> tag for each person inside the <ul> with the id "people"
 
-// async function customFetch(){
-//   const res = await fetch("https://dummyjson.com/products");
-//   const json = await res.json();
-//   return json
+// 2. Add the list of people as a string as the next sibling of the heading "Listing Names". The list should be wrapped in a <p> tag and formatted as a comma separated list (e.g., "John, Paul, George, Ringo").
 
-// }
-// customFetch()
+// 3. Add the conjunction “and” between the final two names (e.g., "John, Paul, George, and Ringo").
 
-// 2. Update the "customFetch" function to take in a endpoint and handle errors (including a wrong endpoint)
-async function customFetch(endpoint, options){
-  try {
-    const res = await fetch(`${BASEURL}/${endpoint}`, {...options});
-    if(!res.ok){
-      throw new Error(`${res.status}: ${res.statusText}`)
-    }
-    const json = await res.json();
-    console.log(json)
-    return json
-  } catch (err) {
-    console.error(err.message)
-  }
-}
+// 4. Add the total number of people as an appended string to the above paragraph (e.g., "John, Paul, George, and Ringo (4)").
 
+// 4. Change the paragraph to read "John, Paul, George, or Ringo (4)".
 
-// 3. Create a function called "getProducts" that returns all the products in an array. Then list all the products in the DOM in an unordered list.
+// 5. Show only the first three names (it should read “John, Paul, or George (3)”).
 
-const createListItem = (item) => `<li>${item}</li>`
+// 6. Show only the last two names (it should read “Paul or Ringo (2)”).
 
-const getProducts = async () => {
-  const data = await customFetch('products');
-  const titles = data.products.map(product => product.title);
-  const listItems = titles.map(t => createListItem(t)).join("")
-  return document.body.insertAdjacentHTML("afterbegin", `<ul>${listItems}</ul>`)
-}
+// Formatting Numbers //
 
-// getProducts()
+const numbers = [1, 2, 3, 2, 5, 4, 6, 5, 3, 5];
+const small_amt = 1234;
+const medium_amt = 124.234;
+const large_amt = 123224223159;
 
-// 4. Update the "customFetch" function to handle a delete, add, or update a request.
-/*
-- Use the updated function to update and then delete a product by it’s ID. (FYI, "https://dummyjson.com/products/1" will access the product with the id of 1)
-- Use the updated function to POST a new product to the list of products. (FYI, "https://dummyjson.com/products/add" will allow POST requests)
-*/
+// 1. Create a new array called uniqueNumbers with all unique numbers in the numbers array.
 
-// customFetch("products/1", {
-//   method: "DELETE"
-// })
+// 2. Insert the sum of the new uniqueNumbers array as the next sibling of the heading "Listing Numbers" in a <p> tag.
 
-// customFetch("products/1", {
-//   method: "PUT",
-//   body: JSON.stringify({"title": "UPDATED!"}),
-//   headers: {"Content-Type": "application/json"}
-// })
+// 3. Loop through each number in the uniqueNumbers array and insert an <li> tag for each number inside the <ul> with the id "numbersList".
 
-// customFetch("products/add", {
-//   method: "POST",
-//   body: JSON.stringify({"title": "NEW POST!"}),
-//   headers: {"Content-Type": "application/json"}
-// })
+// 4. Format each number in the uniqueNumbers array as a currency string with a dollar sign and two decimal places (e.g., $1.00, etc.).
 
+// 5. Output small_amt in a <p> tag as the next sibling. Format the number as a currency string, assuming 1234 represents pennies (i.e., $12.34).
 
-// use the /users, /posts/, and /comments endpoints for #5–7
-// 5. Create a function called "getFilteredUsers" that console logs and returns all the users who are 21 years old in a new array of objects in the following structure:
-/*
-[
-  {
-    name: "John Doe", (containing first and last name)
-    age: 21,
-    email: "email@email.com",
-  },
-  ...
-]
+// 6. Output medium_amt in a <p> tag as the next sibling to your <p id="small_amt"> with the id "medium_amt". Format the number as a number with only two decimal places (e.g., 124.23).
 
-See help documentation for help at https://dummyjson.com/docs/users. You can use the "customFetch" function you created earlier.
-*/
+// 7. Output large_amt in a <p> tag as the next sibling to your <p id="medium_amt"> with the id "large_amt". Format it as a number with a comma separating the thousands (e.g., 123,224,223,159).
 
-// async function getFilteredUsers(key, val){
-//   const data = await customFetch(`users/filter?key=${key}&value=${val}`);
-//   const filteredUsers = data.users.map((u) => ({
-//     name: `${u.firstName} ${u.lastName}`,
-//     age: u.age,
-//     email: u.email,
-//   }))
-//   console.table(filteredUsers)
-//   return filteredUsers
-// }
-
-// getFilteredUsers("age", "21")
-
-
-// 6. Alter the getFilteredUsers function to return all filtered users in an object with the id as the key and the user object as the value. (See help documentation for help at https://dummyjson.com/docs/users)
-
-async function manipulateAllUserData(){
-  const data = await customFetch(`users`);
-  const filteredUsers = data.users.reduce((acc, u) => {
-    acc[u.id] = {...u}
-    return acc
-  }, {})
-  console.log(filteredUsers)
-  return filteredUsers
-}
-
-// manipulateAllUserData()
-
-
-// 7. Create a new function called "getCommentsOnUsersPosts" that takes in a user id and returns all comments on any post by that user in an array of objects. Each object should contain two properties, postTitle and comments. Comments should contain the userID of the commentor and the text. Bonus points for filtering out posts without comments. Sample below:
-
-/*
-
-[
-  {
-    postTitle: "Post Title",
-    comments: [
-      {
-      userId: 1,
-      text: "Comment Text"
-      },
-      {
-      userId: 2,
-      text: "Comment Again"
-      }
-    ]
-  },
-  ...
-]
-
-See https://dummyjson.com/docs/users, https://dummyjson.com/docs/posts, and https://dummyjson.com/docs/comments for help.
-*/
-
-async function getCommentsOnUsersPosts(id){
-  const allPostsByUser = await customFetch(`users/${id}/posts`)
-  const allComments = await Promise.all(allPostsByUser.posts.map(async (post) => {
-    const postsComments = await customFetch(`posts/${post.id}/comments`)
-    if(postsComments.total === 0) return;
-    const comments = postsComments.comments.map(c => ({
-      userId: c.user.id,
-      text: c.body
-    }))
-    return {
-      postTitle: post.title,
-      comments
-    }
-  }))
-  console.log(allComments.filter(c => c))
-  return allComments.filter(c => c);
-}
-
-getCommentsOnUsersPosts(5)
+// 8. Format "large_amt" as a compact number with a maximum of one fraction digit (e.g., 123.2M).
