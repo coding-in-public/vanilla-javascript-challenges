@@ -13,3 +13,4 @@ Happy Coding ✌️
 3. [Challenge 3: Working with JavaScript Objects](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-3-BLANK)
 4. [Challenge 4: Working with the Fetch API](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-4-BLANK)
 5. [Challenge 5: Formatting Strings and Numbers](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-5-BLANK)
+6. [Challenge 6: Higher Order Functions](https://github.com/coding-in-public/vanilla-javascript-challenges/tree/challenge-6-BLANK)
